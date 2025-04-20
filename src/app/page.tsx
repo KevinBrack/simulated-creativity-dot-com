@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { messages } from "@/data/messages";
 import { colors } from "@/styles/theme";
 
@@ -94,7 +95,7 @@ export default function Home() {
                     <p className="mb-4">
                         This conversation references{" "}
                         <a
-                            href="http://thelawsofsimplicity.com"
+                            href="http://lawsofsimplicity.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`${colors.link} ${colors.linkHover}`}
@@ -116,6 +117,38 @@ export default function Home() {
                         </a>
                         .
                     </p>
+                </div>
+
+                {/* Easter Egg */}
+                <div className="mt-32 mb-16 text-center">
+                    <Image
+                        src="/camacho-caravan.jpeg"
+                        alt="President Camacho"
+                        width={600}
+                        height={400}
+                        className="mx-auto rounded-lg"
+                    />
+                    <div
+                        className={`mt-8 ${colors.textPrimary} max-w-[600px] mx-auto`}
+                    >
+                        <h3 className="text-xl font-bold mb-4">
+                            PRESIDENTIAL PSA:
+                        </h3>
+                        <p className="mb-2 font-bold">
+                            Don&apos;t drink and vibe code.
+                        </p>
+                        <p className="mb-4">
+                            Generated code you don&apos;t understand is just
+                            unexploded logic.
+                        </p>
+                        <p className={`mb-6 font-mono ${colors.codePink}`}>
+                            Readability === Safety && safety.comes.first();
+                        </p>
+                        <p className="italic">
+                            - President Dwayne Elizondo Mountain Dew Herbert
+                            Camacho
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

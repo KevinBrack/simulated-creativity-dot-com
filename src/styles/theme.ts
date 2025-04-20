@@ -23,4 +23,7 @@ export const colors = {
     // Links
     link: "text-[#8BE9FD]", // Cyan
     linkHover: "hover:text-[#50FA7B]", // Green
+
+    // Code
+    codePink: "text-[#FF79C6]", // Pink
 };

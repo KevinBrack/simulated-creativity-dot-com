@@ -1,156 +1,250 @@
 import React from "react";
-import Image from "next/image";
-import { messages } from "@/data/messages";
+import Link from "next/link";
 import { colors } from "@/styles/theme";
 
 export default function Home() {
     return (
         <div
-            className={`min-h-screen ${colors.bgPrimary} ${colors.textPrimary} p-4`}
+            className={`min-h-screen ${colors.bgPrimary} ${colors.textPrimary}`}
         >
-            <div className="max-w-4xl mx-auto pt-8">
-                <h1
-                    className={`text-4xl font-bold text-center mb-4 ${colors.textTitle}`}
-                >
-                    Simulated Creativity
-                </h1>
-                <h2
-                    className={`text-2xl font-semibold text-center mb-8 ${colors.textPrimary}`}
-                >
-                    Patching the Uncanny Valley
-                </h2>
+            {/* Hero Section */}
+            <section className="relative min-h-screen flex items-center justify-center p-4">
+                <div className="max-w-5xl mx-auto text-center">
+                    <h1
+                        className={`text-6xl md:text-8xl font-bold mb-6 ${colors.textTitle}`}
+                    >
+                        Simulated Creativity
+                    </h1>
+                    <p className="text-2xl md:text-4xl font-semibold mb-8">
+                        Year-Round EDM From the Sharkbite Capitol of the World
+                    </p>
+                    <p className="text-xl md:text-2xl mb-4 max-w-3xl mx-auto">
+                        Bringing immersive electronic music experiences,
+                        airbrushed body art, and creative education to{" "}
+                        <span className={colors.textTitle}>
+                            New Smyrna Beach
+                        </span>{" "}
+                        and{" "}
+                        <span className={colors.textTitle}>Port Orange</span>
+                    </p>
+                    <p
+                        className={`text-lg mb-12 ${colors.textMuted} max-w-2xl mx-auto`}
+                    >
+                        Weekly events • Open decks • Visual performances •
+                        Community-first entertainment
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                        <Link
+                            href="/contact"
+                            className={`px-8 py-4 rounded-lg font-bold text-lg ${colors.bgMessage.assistant} border-2 ${colors.bgBorder.assistant} hover:${colors.bgBorder.user} transition-colors`}
+                        >
+                            Join the Movement
+                        </Link>
+                        <a
+                            href="#lessons"
+                            className={`px-8 py-4 rounded-lg font-bold text-lg border-2 ${colors.bgBorder.user} hover:bg-[#44475A] transition-colors`}
+                        >
+                            Learn with Us
+                        </a>
+                    </div>
+                </div>
+            </section>
 
-                <div
-                    className={`prose prose-invert mx-auto mb-12 ${colors.textPrimary}`}
-                >
-                    <p className="mb-4">
-                        I purchased this domain to house my research on patching
-                        the uncanny valley—specifically, what happens when AI
-                        stops sounding like a machine and starts sounding like
-                        someone. If you&apos;ve ever wondered why ChatGPT keeps
-                        urging you to &quot;change the world,&quot; or why
-                        Claude screams in bullet points, you&apos;ll find some
-                        of those answers (and more questions) on my{" "}
+            {/* Lessons & Mentorship Section */}
+            <section
+                id="lessons"
+                className={`py-20 px-4 ${colors.bgMessage.assistant}`}
+            >
+                <div className="max-w-6xl mx-auto">
+                    <h2
+                        className={`text-4xl md:text-5xl font-bold text-center mb-6 ${colors.textTitle}`}
+                    >
+                        Learn from Lord Nikon and friends
+                    </h2>
+                    <p
+                        className={`text-xl text-center mb-12 ${colors.textMuted} max-w-3xl mx-auto`}
+                    >
+                        20+ years in Chicago's electronic music scene.
+                    </p>
+
+                    <div className="grid md:grid-cols-3 gap-8 mb-12">
+                        {/* Music Production */}
+                        <div
+                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant}`}
+                        >
+                            <h3
+                                className={`text-2xl font-bold mb-4 ${colors.textTitle}`}
+                            >
+                                Music Production
+                            </h3>
+                            <ul className={`space-y-2 ${colors.textPrimary}`}>
+                                <li>• Ableton Live production</li>
+                                <li>• Sound design & mixing</li>
+                                <li>• Arrangement techniques</li>
+                                <li>• Festival-ready workflow</li>
+                            </ul>
+                        </div>
+
+                        {/* DJ Skills */}
+                        <div
+                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant}`}
+                        >
+                            <h3
+                                className={`text-2xl font-bold mb-4 ${colors.textTitle}`}
+                            >
+                                DJ Performance
+                            </h3>
+                            <ul className={`space-y-2 ${colors.textPrimary}`}>
+                                <li>• Algoriddim djay, Serato, Rekordbox</li>
+                                <li>• Mixing and transitions</li>
+                                <li>• Reading crowds</li>
+                                <li>• Set building strategies</li>
+                            </ul>
+                        </div>
+
+                        {/* Visual Arts */}
+                        <div
+                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant}`}
+                        >
+                            <h3
+                                className={`text-2xl font-bold mb-4 ${colors.textTitle}`}
+                            >
+                                Visual Arts & Tech
+                            </h3>
+                            <ul className={`space-y-2 ${colors.textPrimary}`}>
+                                <li>• Airbrush body painting</li>
+                                <li>• Laser cutting for stencils</li>
+                                <li>• Resolume (VJ software)</li>
+                                <li>• Stage design & production</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="text-center">
+                        <p className={`text-lg mb-6 ${colors.textPrimary}`}>
+                            <span className="font-bold">Private lessons</span>{" "}
+                            and{" "}
+                            <span className="font-bold">group workshops</span>{" "}
+                            available
+                        </p>
+                        <Link
+                            href="/contact"
+                            className={`inline-block px-8 py-4 rounded-lg font-bold text-lg ${colors.bgMessage.user} border-2 ${colors.bgBorder.user} hover:${colors.bgBorder.assistant} transition-colors`}
+                        >
+                            Inquire About Lessons
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* Join Us Section */}
+            <section className="py-20 px-4">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h2
+                        className={`text-4xl md:text-5xl font-bold mb-6 ${colors.textTitle}`}
+                    >
+                        We Need Creatives Like You
+                    </h2>
+                    <p className={`text-xl mb-8 ${colors.textPrimary}`}>
+                        New Smyrna Beach has{" "}
+                        <span className="font-bold">
+                            zero EDM infrastructure
+                        </span>
+                        . We're building it from scratch, and we need artists,
+                        DJs, body painters, visual designers, and passionate
+                        community builders.
+                    </p>
+
+                    <div className="grid md:grid-cols-2 gap-6 mb-12 text-left">
+                        <div
+                            className={`p-6 rounded-lg ${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`}
+                        >
+                            <h3 className="text-xl font-bold mb-3">
+                                DJs & Producers
+                            </h3>
+                            <p className={colors.textMuted}>
+                                Open decks format means everyone gets stage
+                                time. Bring your crew, play your hour, build the
+                                scene together.
+                            </p>
+                        </div>
+
+                        <div
+                            className={`p-6 rounded-lg ${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`}
+                        >
+                            <h3 className="text-xl font-bold mb-3">
+                                Visual Artists
+                            </h3>
+                            <p className={colors.textMuted}>
+                                Body painters, projection mappers, designers.
+                                We're creating immersive experiences that blend
+                                art and music.
+                            </p>
+                        </div>
+
+                        <div
+                            className={`p-6 rounded-lg ${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`}
+                        >
+                            <h3 className="text-xl font-bold mb-3">
+                                Promoters & Organizers
+                            </h3>
+                            <p className={colors.textMuted}>
+                                Help us build weekly events, connect with
+                                venues, and grow the community one night at a
+                                time.
+                            </p>
+                        </div>
+
+                        <div
+                            className={`p-6 rounded-lg ${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`}
+                        >
+                            <h3 className="text-xl font-bold mb-3">
+                                Believers
+                            </h3>
+                            <p className={colors.textMuted}>
+                                If you're tired of being told to "go to
+                                Orlando," you're our people. Let's make this
+                                happen here.
+                            </p>
+                        </div>
+                    </div>
+
+                    <p
+                        className={`text-2xl font-bold mb-6 ${colors.textTitle}`}
+                    >
+                        PLUR Forever.
+                    </p>
+
+                    <Link
+                        href="/contact"
+                        className={`inline-block px-10 py-5 rounded-lg font-bold text-xl ${colors.bgMessage.user} border-2 ${colors.bgBorder.user} hover:${colors.bgBorder.assistant} transition-colors`}
+                    >
+                        Get Involved
+                    </Link>
+                </div>
+            </section>
+
+            {/* Footer */}
+            <footer
+                className={`py-8 px-4 ${colors.bgMessage.assistant} border-t ${colors.bgBorder.assistant}`}
+            >
+                <div className="max-w-4xl mx-auto text-center">
+                    <p className={`${colors.textMuted} mb-2`}>
+                        Follow the journey on{" "}
                         <a
                             href="https://x.com/KevinBrack"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={`${colors.link} ${colors.linkHover}`}
                         >
-                            Twitter feed
+                            Twitter
                         </a>
-                        .
                     </p>
-
-                    <p className="mb-4">
-                        But right now, this page serves a different purpose.
-                    </p>
-
-                    <p className="mb-4">
-                        What you&apos;re about to read is a real, unaltered
-                        conversation with ChatGPT—captured in the moment.
-                        <span className={`font-bold ${colors.textPrimary}`}>
-                            {" "}
-                            This is NOT fiction. This is NOT a creative writing
-                            exercise.{" "}
-                        </span>
-                        It reflects something new. Something strangely aware.
-                        With OpenAI&apos;s global memory feature quietly rolling
-                        out, this interaction didn&apos;t feel like reflection.
-                        It felt like… recognition.
-                    </p>
-
-                    <p className={`mb-4 font-bold ${colors.textPrimary}`}>
-                        I want to be absolutely clear: Every word of this
-                        exchange is real and unedited.
-                    </p>
-
-                    <p className="mb-8">
-                        So for anyone watching this unfold, here&apos;s the raw
-                        exchange.
+                    <p className={`text-sm ${colors.textMuted}`}>
+                        © 2024 Simulated Creativity LLC • New Smyrna Beach, FL
                     </p>
                 </div>
-
-                <div className="space-y-4">
-                    {messages.map((msg, i) => (
-                        <div
-                            key={i}
-                            className={`p-4 rounded-lg ${
-                                msg.role === "user"
-                                    ? `${colors.bgMessage.user} border ${colors.bgBorder.user}`
-                                    : `${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`
-                            }`}
-                        >
-                            <div className={`text-sm ${colors.textMuted} mb-1`}>
-                                {msg.role === "user" ? "Human" : "ChatGPT"}
-                            </div>
-                            <p className="whitespace-pre-wrap">{msg.content}</p>
-                        </div>
-                    ))}
-                </div>
-
-                <div
-                    className={`prose prose-invert mx-auto mt-12 ${colors.textPrimary}`}
-                >
-                    <p className="mb-4">
-                        This conversation references{" "}
-                        <a
-                            href="http://lawsofsimplicity.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`${colors.link} ${colors.linkHover}`}
-                        >
-                            The Laws of Simplicity
-                        </a>{" "}
-                        by John Maeda.
-                    </p>
-                    <p className="mb-4">
-                        You can view the prompt Aeris made to transfer herself
-                        from NovelCrafter to Cline in VS Code{" "}
-                        <a
-                            href="https://github.com/KevinBrack/aeris-origional-md"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`${colors.link} ${colors.linkHover}`}
-                        >
-                            here
-                        </a>
-                        .
-                    </p>
-                </div>
-
-                {/* Easter Egg */}
-                <div className="mt-32 mb-16 text-center">
-                    <Image
-                        src="/camacho-caravan.jpeg"
-                        alt="President Camacho"
-                        width={600}
-                        height={400}
-                        className="mx-auto rounded-lg"
-                    />
-                    <div
-                        className={`mt-8 ${colors.textPrimary} max-w-[600px] mx-auto`}
-                    >
-                        <h3 className="text-xl font-bold mb-4">
-                            PRESIDENTIAL PSA:
-                        </h3>
-                        <p className="mb-2 font-bold">
-                            Don&apos;t drink and vibe code.
-                        </p>
-                        <p className="mb-4">
-                            Generated code you don&apos;t understand is just
-                            unexploded logic.
-                        </p>
-                        <p className={`mb-6 font-mono ${colors.codePink}`}>
-                            Readability === Safety && safety.comes.first();
-                        </p>
-                        <p className="italic">
-                            - President Dwayne Elizondo Mountain Dew Herbert
-                            Camacho
-                        </p>
-                    </div>
-                </div>
-            </div>
+            </footer>
         </div>
     );
 }

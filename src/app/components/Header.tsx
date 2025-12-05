@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { FaDiscord, FaEnvelope, FaInstagram } from "react-icons/fa";
+import { FaDiscord, FaEnvelope, FaInstagram, FaSoundcloud } from "react-icons/fa";
 import { colors } from "@/styles/theme";
 
 export default function Header() {
@@ -27,6 +27,15 @@ export default function Header() {
                         title="Join our Discord"
                     >
                         <FaDiscord />
+                    </a>
+                    <a
+                        href="https://soundcloud.com/lordnikonmusic"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-2xl hover:text-[#FF5500] transition-colors"
+                        title="Listen on SoundCloud"
+                    >
+                        <FaSoundcloud />
                     </a>
                     <a
                         href="https://www.instagram.com/sc_lordnikon/"

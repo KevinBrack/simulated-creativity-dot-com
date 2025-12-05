@@ -67,10 +67,56 @@ export default function Home() {
                         Learn from Lord Nikon and friends
                     </h2>
                     <p
-                        className={`text-xl text-center mb-12 ${colors.textMuted} max-w-3xl mx-auto`}
+                        className={`text-xl text-center mb-8 ${colors.textMuted} max-w-3xl mx-auto`}
                     >
                         20+ years in Chicago's electronic music scene.
                     </p>
+
+                    {/* SoundCloud Embed */}
+                    <div className="max-w-3xl mx-auto mb-12">
+                        <iframe
+                            width="100%"
+                            height="166"
+                            scrolling="no"
+                            frameBorder="no"
+                            allow="autoplay"
+                            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lordnikonmusic/mmmm-thats-the-good-stuff-volu&color=%2350FA7B&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
+                        ></iframe>
+                        <div
+                            style={{
+                                fontSize: "10px",
+                                color: "#cccccc",
+                                lineBreak: "anywhere",
+                                wordBreak: "normal",
+                                overflow: "hidden",
+                                whiteSpace: "nowrap",
+                                textOverflow: "ellipsis",
+                                fontFamily:
+                                    "Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif",
+                                fontWeight: 100,
+                            }}
+                        >
+                            <a
+                                href="https://soundcloud.com/lordnikonmusic"
+                                title="Lord Nikon"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: "#cccccc", textDecoration: "none" }}
+                            >
+                                Lord Nikon
+                            </a>{" "}
+                            ·{" "}
+                            <a
+                                href="https://soundcloud.com/lordnikonmusic/mmmm-thats-the-good-stuff-volu"
+                                title="Mmmm... That's the Good Stuff (Volume 1)"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ color: "#cccccc", textDecoration: "none" }}
+                            >
+                                Mmmm... That's the Good Stuff (Volume 1)
+                            </a>
+                        </div>
+                    </div>
 
                     <div className="grid md:grid-cols-3 gap-8 mb-12">
                         {/* Music Production */}
@@ -235,7 +281,8 @@ export default function Home() {
             >
                 <div className="max-w-4xl mx-auto text-center">
                     <p className={`text-sm ${colors.textMuted}`}>
-                        © 2024 Simulated Creativity LLC • New Smyrna Beach, FL
+                        © {new Date().getFullYear()} Simulated Creativity LLC •
+                        New Smyrna Beach, FL
                     </p>
                 </div>
             </footer>

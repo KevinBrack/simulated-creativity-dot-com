@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
     title: "Simulated Creativity",
     description: "Patching the Uncanny Valley",
+    icons: {
+        icon: "/favicon.svg",
+        apple: "/favicon.svg",
+    },
 };
 
 export default function RootLayout({

@@ -1,9 +1,20 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { FaDiscord, FaEnvelope } from "react-icons/fa";
+import { FaDiscord, FaEnvelope, FaCopy, FaCheck } from "react-icons/fa";
 import { colors } from "@/styles/theme";
 
 export default function ContactPage() {
+    const [copied, setCopied] = useState(false);
+    const email = "simulatedcreativitynsb@gmail.com";
+
+    const handleCopy = () => {
+        navigator.clipboard.writeText(email);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
     return (
         <div
             className={`min-h-screen ${colors.bgPrimary} ${colors.textPrimary} p-4`}
@@ -67,12 +78,29 @@ export default function ContactPage() {
                         For business inquiries, booking requests, or anything
                         that needs a direct line:
                     </p>
-                    <a
-                        href="mailto:simulatedcreativitynsb@gmail.com"
-                        className={`inline-block text-2xl font-bold ${colors.link} ${colors.linkHover}`}
-                    >
-                        simulatedcreativitynsb@gmail.com
-                    </a>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <span className={`text-2xl font-bold ${colors.textTitle}`}>
+                            {email}
+                        </span>
+                        <button
+                            onClick={handleCopy}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-colors ${
+                                copied
+                                    ? "bg-green-600 text-white"
+                                    : `${colors.bgMessage.user} border ${colors.bgBorder.user} hover:${colors.bgBorder.assistant}`
+                            }`}
+                        >
+                            {copied ? (
+                                <>
+                                    <FaCheck /> Copied!
+                                </>
+                            ) : (
+                                <>
+                                    <FaCopy /> Copy Email
+                                </>
+                            )}
+                        </button>
+                    </div>
                 </div>
 
                 {/* What to Reach Out About */}
@@ -118,22 +146,6 @@ export default function ContactPage() {
                     </div>
                 </div>
 
-                {/* Social */}
-                <div className="mt-12 text-center">
-                    <p className={`${colors.textMuted} mb-4`}>
-                        Follow the journey:
-                    </p>
-                    <p className={colors.textPrimary}>
-                        <a
-                            href="https://x.com/KevinBrack"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`${colors.link} ${colors.linkHover} font-semibold`}
-                        >
-                            @KevinBrack on Twitter
-                        </a>
-                    </p>
-                </div>
             </div>
         </div>
     );

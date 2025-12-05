@@ -4,12 +4,17 @@ import { colors } from "@/styles/theme";
 
 export default function Home() {
     return (
-        <div
-            className={`min-h-screen ${colors.bgPrimary} ${colors.textPrimary}`}
-        >
-            {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center p-4">
-                <div className="max-w-5xl mx-auto text-center">
+        <div className={`${colors.bgPrimary} ${colors.textPrimary}`}>
+            {/* Hero Section - Full Screen */}
+            <section
+                className="relative h-screen flex items-center justify-center p-4 -mt-16 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: 'url(/backgrounds/sunset-dj.jpeg)' }}
+            >
+                {/* Gradient overlay for text readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+
+                {/* Content - Tinted glass container */}
+                <div className="max-w-5xl mx-auto text-center relative z-10 bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12 shadow-2xl">
                     <h1
                         className={`text-6xl md:text-8xl font-bold mb-6 ${colors.textTitle}`}
                     >
@@ -229,17 +234,6 @@ export default function Home() {
                 className={`py-8 px-4 ${colors.bgMessage.assistant} border-t ${colors.bgBorder.assistant}`}
             >
                 <div className="max-w-4xl mx-auto text-center">
-                    <p className={`${colors.textMuted} mb-2`}>
-                        Follow the journey on{" "}
-                        <a
-                            href="https://x.com/KevinBrack"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`${colors.link} ${colors.linkHover}`}
-                        >
-                            Twitter
-                        </a>
-                    </p>
                     <p className={`text-sm ${colors.textMuted}`}>
                         © 2024 Simulated Creativity LLC • New Smyrna Beach, FL
                     </p>

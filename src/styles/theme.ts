@@ -18,7 +18,8 @@ export const colors = {
     // Text colors
     textSecondary: "text-[#F8F8F2]", // Foreground for intro text
     textMuted: "text-[#6272A4]", // Comment (for labels)
-    textTitle: "text-[#BD93F9]", // Purple for title
+    // textTitle: "text-[#BD93F9]", // Purple for title
+    textTitle: "text-[#50FA7B]", // Green
 
     // Links
     link: "text-[#8BE9FD]", // Cyan

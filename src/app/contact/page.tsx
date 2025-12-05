@@ -1,71 +1,9 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
+import { FaDiscord, FaEnvelope } from "react-icons/fa";
 import { colors } from "@/styles/theme";
 
-interface FormData {
-    name: string;
-    email: string;
-    interest: string;
-    message: string;
-    timestamp: string;
-}
-
 export default function ContactPage() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        interest: "",
-        message: "",
-    });
-    const [submitted, setSubmitted] = useState(false);
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-
-        // Create submission object with timestamp
-        const submission: FormData = {
-            ...formData,
-            timestamp: new Date().toISOString(),
-        };
-
-        // Get existing submissions from localStorage
-        const existing = localStorage.getItem("sc-contacts");
-        const contacts: FormData[] = existing ? JSON.parse(existing) : [];
-
-        // Add new submission
-        contacts.push(submission);
-
-        // Save back to localStorage
-        localStorage.setItem("sc-contacts", JSON.stringify(contacts));
-
-        // Show success message
-        setSubmitted(true);
-
-        // Reset form
-        setFormData({
-            name: "",
-            email: "",
-            interest: "",
-            message: "",
-        });
-
-        // Reset success message after 5 seconds
-        setTimeout(() => setSubmitted(false), 5000);
-    };
-
-    const handleChange = (
-        e: React.ChangeEvent<
-            HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-        >
-    ) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
-
     return (
         <div
             className={`min-h-screen ${colors.bgPrimary} ${colors.textPrimary} p-4`}
@@ -80,164 +18,110 @@ export default function ContactPage() {
                 </Link>
 
                 {/* Header */}
-                <h1
-                    className={`text-5xl font-bold mb-4 ${colors.textTitle}`}
-                >
-                    Get in Touch
+                <h1 className={`text-5xl font-bold mb-4 ${colors.textTitle}`}>
+                    Join the Community
                 </h1>
                 <p className={`text-xl mb-12 ${colors.textMuted}`}>
-                    Whether you want to learn, perform, collaborate, or just
-                    say what's up—we want to hear from you.
+                    For lessons, bookings, collaborations, or just to say
+                    what's up—we're here.
                 </p>
 
-                {/* Success Message */}
-                {submitted && (
-                    <div
-                        className={`mb-8 p-6 rounded-lg border-2 ${colors.bgBorder.assistant} ${colors.bgMessage.assistant}`}
-                    >
-                        <p className="text-lg font-bold mb-2">
-                            Message received! 🎉
-                        </p>
-                        <p className={colors.textMuted}>
-                            We'll get back to you soon. In the meantime,{" "}
-                            <a
-                                href="https://x.com/KevinBrack"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className={`${colors.link} ${colors.linkHover}`}
-                            >
-                                follow us on Twitter
-                            </a>{" "}
-                            to stay updated.
-                        </p>
-                    </div>
-                )}
-
-                {/* Contact Form */}
-                <form
-                    onSubmit={handleSubmit}
-                    className={`${colors.bgMessage.assistant} border ${colors.bgBorder.assistant} rounded-lg p-8`}
+                {/* Discord Community */}
+                <div
+                    className={`mb-8 p-8 rounded-lg border-2 ${colors.bgBorder.assistant} ${colors.bgMessage.assistant}`}
                 >
-                    {/* Name */}
-                    <div className="mb-6">
-                        <label
-                            htmlFor="name"
-                            className="block text-lg font-semibold mb-2"
-                        >
-                            Name *
-                        </label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            required
-                            value={formData.name}
-                            onChange={handleChange}
-                            className={`w-full px-4 py-3 rounded-lg bg-[#282A36] border ${colors.bgBorder.user} ${colors.textPrimary} focus:outline-none focus:border-[#BD93F9] transition-colors`}
-                            placeholder="Your name"
-                        />
+                    <div className="flex items-center gap-4 mb-4">
+                        <FaDiscord className="text-5xl text-[#5865F2]" />
+                        <h2 className="text-3xl font-bold">
+                            Join Our Discord
+                        </h2>
                     </div>
-
-                    {/* Email */}
-                    <div className="mb-6">
-                        <label
-                            htmlFor="email"
-                            className="block text-lg font-semibold mb-2"
-                        >
-                            Email *
-                        </label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            required
-                            value={formData.email}
-                            onChange={handleChange}
-                            className={`w-full px-4 py-3 rounded-lg bg-[#282A36] border ${colors.bgBorder.user} ${colors.textPrimary} focus:outline-none focus:border-[#BD93F9] transition-colors`}
-                            placeholder="your@email.com"
-                        />
-                    </div>
-
-                    {/* Interest */}
-                    <div className="mb-6">
-                        <label
-                            htmlFor="interest"
-                            className="block text-lg font-semibold mb-2"
-                        >
-                            I'm interested in... *
-                        </label>
-                        <select
-                            id="interest"
-                            name="interest"
-                            required
-                            value={formData.interest}
-                            onChange={handleChange}
-                            className={`w-full px-4 py-3 rounded-lg bg-[#282A36] border ${colors.bgBorder.user} ${colors.textPrimary} focus:outline-none focus:border-[#BD93F9] transition-colors`}
-                        >
-                            <option value="">Select one...</option>
-                            <option value="lessons-music">
-                                Music Production / DJ Lessons
-                            </option>
-                            <option value="lessons-visual">
-                                Airbrush / Visual Arts Lessons
-                            </option>
-                            <option value="performing">
-                                Performing (DJ / Open Decks)
-                            </option>
-                            <option value="body-paint">
-                                Body Paint Services
-                            </option>
-                            <option value="collaborating">
-                                Collaborating / Joining the Team
-                            </option>
-                            <option value="events">
-                                Upcoming Events
-                            </option>
-                            <option value="other">
-                                Other / Just Saying Hi
-                            </option>
-                        </select>
-                    </div>
-
-                    {/* Message */}
-                    <div className="mb-6">
-                        <label
-                            htmlFor="message"
-                            className="block text-lg font-semibold mb-2"
-                        >
-                            Message *
-                        </label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            required
-                            value={formData.message}
-                            onChange={handleChange}
-                            rows={6}
-                            className={`w-full px-4 py-3 rounded-lg bg-[#282A36] border ${colors.bgBorder.user} ${colors.textPrimary} focus:outline-none focus:border-[#BD93F9] transition-colors resize-none`}
-                            placeholder="Tell us what you're thinking..."
-                        />
-                    </div>
-
-                    {/* Submit Button */}
-                    <button
-                        type="submit"
-                        className={`w-full px-8 py-4 rounded-lg font-bold text-lg ${colors.bgMessage.user} border-2 ${colors.bgBorder.user} hover:${colors.bgBorder.assistant} transition-colors`}
-                    >
-                        Send Message
-                    </button>
-
-                    <p
-                        className={`mt-4 text-sm ${colors.textMuted} text-center`}
-                    >
-                        * Required fields
+                    <p className={`text-lg mb-6 ${colors.textMuted}`}>
+                        The Simulated Creativity Discord is where the community
+                        lives. Get event updates, connect with other creators,
+                        find open decks schedules, and be part of building NSB's
+                        EDM scene.
                     </p>
-                </form>
+                    <a
+                        href="https://discord.gg/a6FxayHx5E"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`inline-flex items-center gap-3 px-8 py-4 rounded-lg font-bold text-lg bg-[#5865F2] hover:bg-[#4752C4] transition-colors text-white`}
+                    >
+                        <FaDiscord className="text-2xl" />
+                        Join Discord Community
+                    </a>
+                </div>
 
-                {/* Alternative Contact */}
+                {/* Email Contact */}
+                <div
+                    className={`p-8 rounded-lg border ${colors.bgBorder.user} ${colors.bgMessage.user}`}
+                >
+                    <div className="flex items-center gap-4 mb-4">
+                        <FaEnvelope
+                            className={`text-4xl ${colors.textTitle}`}
+                        />
+                        <h2 className="text-3xl font-bold">Email Us</h2>
+                    </div>
+                    <p className={`text-lg mb-4 ${colors.textMuted}`}>
+                        For business inquiries, booking requests, or anything
+                        that needs a direct line:
+                    </p>
+                    <a
+                        href="mailto:simulatedcreativitynsb@gmail.com"
+                        className={`inline-block text-2xl font-bold ${colors.link} ${colors.linkHover}`}
+                    >
+                        simulatedcreativitynsb@gmail.com
+                    </a>
+                </div>
+
+                {/* What to Reach Out About */}
+                <div className="mt-12">
+                    <h3
+                        className={`text-2xl font-bold mb-6 ${colors.textTitle} text-center`}
+                    >
+                        What We're Here For
+                    </h3>
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <div
+                            className={`p-4 rounded-lg ${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`}
+                        >
+                            <p className="font-semibold mb-1">📚 Lessons</p>
+                            <p className={`text-sm ${colors.textMuted}`}>
+                                Ableton, DJing, airbrush, visual production
+                            </p>
+                        </div>
+                        <div
+                            className={`p-4 rounded-lg ${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`}
+                        >
+                            <p className="font-semibold mb-1">🎵 Open Decks</p>
+                            <p className={`text-sm ${colors.textMuted}`}>
+                                Get on the rotation, bring your crew
+                            </p>
+                        </div>
+                        <div
+                            className={`p-4 rounded-lg ${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`}
+                        >
+                            <p className="font-semibold mb-1">🎨 Body Paint</p>
+                            <p className={`text-sm ${colors.textMuted}`}>
+                                AI-designed airbrush services
+                            </p>
+                        </div>
+                        <div
+                            className={`p-4 rounded-lg ${colors.bgMessage.assistant} border ${colors.bgBorder.assistant}`}
+                        >
+                            <p className="font-semibold mb-1">🤝 Collaborate</p>
+                            <p className={`text-sm ${colors.textMuted}`}>
+                                Artists, venues, promoters welcome
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Social */}
                 <div className="mt-12 text-center">
                     <p className={`${colors.textMuted} mb-4`}>
-                        Or reach out directly:
+                        Follow the journey:
                     </p>
                     <p className={colors.textPrimary}>
                         <a

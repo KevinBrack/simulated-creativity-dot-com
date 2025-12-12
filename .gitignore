@@ -45,5 +45,6 @@ next-env.d.ts
 
 # MCP
 .mcp.json
+.mcp-temp.json
 
 # TRIGGER BUILD

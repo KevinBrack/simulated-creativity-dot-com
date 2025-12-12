@@ -197,13 +197,13 @@ export default function Home() {
                         We Need Creatives Like You
                     </h2>
                     <p className={`text-xl mb-8 ${colors.textPrimary}`}>
-                        New Smyrna Beach has{" "}
+                        We're building a thriving{" "}
                         <span className="font-bold">
-                            zero EDM infrastructure
-                        </span>
-                        . We're building it from scratch, and we need artists,
-                        DJs, body painters, visual designers, and passionate
-                        community builders.
+                            EDM community
+                        </span>{" "}
+                        in New Smyrna Beach that celebrates diverse electronic music.
+                        We need artists, DJs, body painters, visual designers, and
+                        passionate community builders to make it happen.
                     </p>
 
                     <div className="grid md:grid-cols-2 gap-6 mb-12 text-left">

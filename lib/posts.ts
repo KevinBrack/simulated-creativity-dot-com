@@ -11,9 +11,12 @@ export function getPostSlugs(): string[] {
   return fs.readdirSync(POSTS_PATH).filter((f) => f.endsWith('.md'));
 }
 
-export async function getPostBySlug(slug: string) {
-  const realSlug = slug.replace(/\.md$/, '');
+export async function getPostBySlug(slug?: string | string[]) {
+  if (!slug) throw new Error('getPostBySlug: slug is required');
+  const slugStr = Array.isArray(slug) ? slug.join('/') : slug;
+  const realSlug = slugStr.replace(/\.md$/, '');
   const fullPath = path.join(POSTS_PATH, `${realSlug}.md`);
+  if (!fs.existsSync(fullPath)) throw new Error(`Post not found: ${realSlug}`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
   const processed = await remark().use(html).process(content);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { notFound } from 'next/navigation';
 import { getAllPosts, getPostBySlug } from '../../../../lib/posts';
 
 type Props = { params: { slug: string } };
@@ -9,7 +10,13 @@ export async function generateStaticParams() {
 }
 
 export default async function PostPage({ params }: Props) {
-  const post = await getPostBySlug(params.slug);
+  let post;
+  try {
+    post = await getPostBySlug(params.slug as string);
+  } catch (err) {
+    console.error('Error loading post:', err);
+    return notFound();
+  }
   return (
     <main style={{ padding: '2rem' }}>
       <article>

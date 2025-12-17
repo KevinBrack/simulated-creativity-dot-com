@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { colors } from "@/styles/theme";
 import MixtapePlayer from "@/components/AudioPlayer";
+import BrandName from "@/components/BrandName";
 
 export default function Home() {
     return (
@@ -19,7 +20,7 @@ export default function Home() {
                     <h1
                         className={`text-6xl md:text-8xl font-bold mb-6 ${colors.textTitle}`}
                     >
-                        Simulated Creativity
+                        <BrandName />
                     </h1>
                     <p className="text-2xl md:text-4xl font-semibold mb-8">
                         Year-Round EDM From the Sharkbite Capitol of the World

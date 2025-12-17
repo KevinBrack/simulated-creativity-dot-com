@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { colors } from "@/styles/theme";
+import MixtapePlayer from "@/components/AudioPlayer";
 
 export default function Home() {
     return (
@@ -8,7 +9,7 @@ export default function Home() {
             {/* Hero Section - Full Screen */}
             <section
                 className="relative h-screen flex items-center justify-center p-4 -mt-16 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: 'url(/backgrounds/sunset-dj.jpeg)' }}
+                style={{ backgroundImage: "url(/backgrounds/sunset-dj.jpeg)" }}
             >
                 {/* Gradient overlay for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
@@ -72,56 +73,15 @@ export default function Home() {
                         20+ years in Chicago's electronic music scene.
                     </p>
 
-                    {/* SoundCloud Embed */}
-                    <div className="max-w-3xl mx-auto mb-12">
-                        <iframe
-                            width="100%"
-                            height="166"
-                            scrolling="no"
-                            frameBorder="no"
-                            allow="autoplay"
-                            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/lordnikonmusic/mmmm-thats-the-good-stuff-volu&color=%2350FA7B&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"
-                        ></iframe>
-                        <div
-                            style={{
-                                fontSize: "10px",
-                                color: "#cccccc",
-                                lineBreak: "anywhere",
-                                wordBreak: "normal",
-                                overflow: "hidden",
-                                whiteSpace: "nowrap",
-                                textOverflow: "ellipsis",
-                                fontFamily:
-                                    "Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif",
-                                fontWeight: 100,
-                            }}
-                        >
-                            <a
-                                href="https://soundcloud.com/lordnikonmusic"
-                                title="Lord Nikon"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ color: "#cccccc", textDecoration: "none" }}
-                            >
-                                Lord Nikon
-                            </a>{" "}
-                            ·{" "}
-                            <a
-                                href="https://soundcloud.com/lordnikonmusic/mmmm-thats-the-good-stuff-volu"
-                                title="Mmmm... That's the Good Stuff (Volume 1)"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                style={{ color: "#cccccc", textDecoration: "none" }}
-                            >
-                                Mmmm... That's the Good Stuff (Volume 1)
-                            </a>
-                        </div>
+                    {/* Audio Player */}
+                    <div className="mb-12">
+                        <MixtapePlayer />
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8 mb-12">
                         {/* Music Production */}
                         <div
-                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant}`}
+                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant} bg-black`}
                         >
                             <h3
                                 className={`text-2xl font-bold mb-4 ${colors.textTitle}`}
@@ -138,7 +98,7 @@ export default function Home() {
 
                         {/* DJ Skills */}
                         <div
-                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant}`}
+                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant} bg-black`}
                         >
                             <h3
                                 className={`text-2xl font-bold mb-4 ${colors.textTitle}`}
@@ -155,7 +115,7 @@ export default function Home() {
 
                         {/* Visual Arts */}
                         <div
-                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant}`}
+                            className={`p-6 rounded-lg border ${colors.bgBorder.assistant} bg-black`}
                         >
                             <h3
                                 className={`text-2xl font-bold mb-4 ${colors.textTitle}`}
@@ -198,12 +158,10 @@ export default function Home() {
                     </h2>
                     <p className={`text-xl mb-8 ${colors.textPrimary}`}>
                         We're building a thriving{" "}
-                        <span className="font-bold">
-                            EDM community
-                        </span>{" "}
-                        in New Smyrna Beach that celebrates diverse electronic music.
-                        We need artists, DJs, body painters, visual designers, and
-                        passionate community builders to make it happen.
+                        <span className="font-bold">EDM community</span> in New
+                        Smyrna Beach that celebrates diverse electronic music.
+                        We need artists, DJs, body painters, visual designers,
+                        and passionate community builders to make it happen.
                     </p>
 
                     <div className="grid md:grid-cols-2 gap-6 mb-12 text-left">
